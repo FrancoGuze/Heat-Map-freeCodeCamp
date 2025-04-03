@@ -68,7 +68,7 @@ fetch(url)
                 tooltip.setAttribute('data-year', d.year);
             })
             .on('mousemove', (event, d) => {
-                tooltip.style.transform = `translate(${scaleX(d.year) - 50}px,${scaleY(monthNames[d.month - 1]) - 80}px)`;
+                tooltip.style.transform = `translate(${scaleX(d.year)+160}px,${scaleY(monthNames[d.month - 1]) - 80}px)`;
             })
             .on('mouseout', () => {
                 tooltip.style.display = 'none';
@@ -85,7 +85,7 @@ fetch(url)
             .attr('transform', `translate(${padLeft - 1},0)`)
             .call(axisY);
 
-        // 📌 Agregar la leyenda
+        //  Agregar la leyenda
         const legendWidth = 400;
         const legendHeight = 50;
         const legendPadding = 10;
@@ -123,7 +123,7 @@ fetch(url)
             .attr('transform', `translate(0, ${legendHeight})`)
             .call(legendAxis);
 
-        // 📌 Agregar los valores de temperatura sobre la leyenda
+        //  Agregar los valores de temperatura sobre la leyenda
         legend.selectAll("text")
             .data(colorScale.domain())
             .enter()
